@@ -550,7 +550,7 @@ public class TypeInfo {
                     stringBuilderRet.append("### expected a type since we are not a wildcard ###");
                 }
             } else {
-                stringBuilderRet.append(Modifier.toString(type.getModifiers()));
+                stringBuilderRet.append(modifierToString(type.getModifiers()));
                 stringBuilderRet.append(" ");
                 stringBuilderRet.append(type.getName());
             }
@@ -582,7 +582,7 @@ public class TypeInfo {
             stringBuilderRet.append(" ");
             StringBuilder stringBuilder = new StringBuilder();
             if (isField()) {
-                stringBuilder.append(Modifier.toString(field.getModifiers()));
+                stringBuilder.append(modifierToString(field.getModifiers()));
                 stringBuilder.append(" ");
                 stringBuilder.append(stringBuilderRet);
                 stringBuilderRet = null;
@@ -590,7 +590,7 @@ public class TypeInfo {
                 stringBuilder.append("#");
                 stringBuilder.append(field.getName());
             } else {
-                stringBuilder.append(Modifier.toString(method.getModifiers()));
+                stringBuilder.append(modifierToString(method.getModifiers()));
                 stringBuilder.append(" ");
                 stringBuilder.append(stringBuilderRet);
                 stringBuilderRet = null;
@@ -612,6 +612,12 @@ public class TypeInfo {
             }
             return stringBuilder.toString();
         }
+    }
+
+
+    static private String modifierToString(int modifiers) {
+        String s = Modifier.toString(modifiers);
+        return s.isEmpty() ? "internal" : s;
     }
 
     private static ArrayList<TypeInfo> getMethodsRecursive(ClassInfo classInfo, String methodName, int depth, ArrayList<TypeInfo> seenMethods) throws NoSuchMethodException {
