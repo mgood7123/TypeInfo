@@ -12,13 +12,11 @@ class C__ <T extends Number> {
 ```
 
 ```java
-TypeInfo.GLOBAL_OUTPUT = true;
 try {
     TypeInfo.getFieldRecursive(C__.class, "foo").printDetailed();
 } catch (NoSuchFieldException e) {
     throw new RuntimeException(e);
 }
-TypeInfo.GLOBAL_OUTPUT = false;
 ```
 
 and it outputs
