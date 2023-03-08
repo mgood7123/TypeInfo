@@ -550,6 +550,8 @@ public class TypeInfo {
                     stringBuilderRet.append("### expected a type since we are not a wildcard ###");
                 }
             } else {
+                stringBuilderRet.append(Modifier.toString(type.getModifiers()));
+                stringBuilderRet.append(" ");
                 stringBuilderRet.append(type.getName());
             }
             if (genericParameters != null) {
@@ -1045,7 +1047,8 @@ public class TypeInfo {
                             if (mapping.size() == 1) {
                                 imprint(second);
                             } else {
-                                throw new RuntimeException("Cannot yet resolve the following mappings:  more than one T=TypeInfo,   one T=TypeInfo and one or more Type");
+//                                throw new RuntimeException("Cannot yet resolve the following mappings:  more than one T=TypeInfo,   one T=TypeInfo and one or more Type, INFO: " + second.toDetailedString());
+                                imprint(second);
                             }
                         } else {
                             Type second = (Type) typeVariableTypePair.second;
