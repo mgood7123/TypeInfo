@@ -70,14 +70,14 @@ class C__ <T extends java.io.Serializable> {
 ```
 ```java
 try {
-    // get the field of new C__<Number>().foo.get(0)[0].values().iterator().next().second
+    // get the field of new C__<Serializable>().foo.get(0)[0].values().iterator().next().second
     TypeInfo foo = TypeInfo.getFieldRecursive(C__.class, "foo");
     for (TypeInfo foo2 : TypeInfo.getMethodsRecursive(foo.getReturnType(), "get")) {
         for (TypeInfo foo3 : TypeInfo.getMethodsRecursive(foo2.getReturnType(), "values")) {
             for (TypeInfo foo4 : TypeInfo.getMethodsRecursive(foo3.getReturnType(), "iterator")) {
                 for (TypeInfo foo5 : TypeInfo.getMethodsRecursive(foo4.getReturnType(), "next")) {
                     TypeInfo foo6 = TypeInfo.getFieldRecursive(foo5.getReturnType(), "second");
-                    // get the field of new C__<Integer>().foo.get(0)[0].values().iterator().next().first
+                    // get the field of new C__<StringBuilder>().foo.get(0)[0].values().iterator().next().first
                     TypeInfo foo7 = TypeInfo.getFieldRecursive(foo6.getReturnType(), "foo");
                     foo7.printDetailed();
                     for (TypeInfo foo8 : TypeInfo.getMethodsRecursive(foo7.getReturnType(), "get")) {
