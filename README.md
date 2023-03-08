@@ -102,7 +102,7 @@ try {
 and it outputs
 ```
 TypeInfo {
-  field: public java.util.List<java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]> smallville7123.Main.C__#foo
+  field: private java.util.List<java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]> smallville7123.Main.C__#foo
   field type: 
     TypeInfo {
       type: java.util.List<java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]>
