@@ -1,6 +1,7 @@
 # TypeInfo
 Java Reflection based type analysis (including generics resolution)
 
+## Example 1
 
 give it
 
@@ -56,6 +57,56 @@ TypeInfo {
                 }
             }
         }
+    }
+}
+```
+
+## Example 2
+
+give it
+
+```java
+class C__ <T extends Number> {
+    public List<HashMap<T[][], Pair<Integer[], C__<Integer>>>[]> foo;
+}
+```
+```java
+try {
+    // get the field of new C__<Number>().foo.get(0)[0].values().iterator().next().second
+    TypeInfo foo = TypeInfo.getFieldRecursive(C__.class, "foo");
+    for (TypeInfo foo2 : TypeInfo.getMethodsRecursive(foo.getReturnType(), "get")) {
+        for (TypeInfo foo3 : TypeInfo.getMethodsRecursive(foo2.getReturnType(), "values")) {
+            for (TypeInfo foo4 : TypeInfo.getMethodsRecursive(foo3.getReturnType(), "iterator")) {
+                for (TypeInfo foo5 : TypeInfo.getMethodsRecursive(foo4.getReturnType(), "next")) {
+                    TypeInfo foo6 = TypeInfo.getFieldRecursive(foo5.getReturnType(), "second");
+                    // get the field of new C__<Integer>().foo.get(0)[0].values().iterator().next().first
+                    TypeInfo foo7 = TypeInfo.getFieldRecursive(foo6.getReturnType(), "foo");
+                    for (TypeInfo foo8 : TypeInfo.getMethodsRecursive(foo7.getReturnType(), "get")) {
+                        for (TypeInfo foo9 : TypeInfo.getMethodsRecursive(foo8.getReturnType(), "values")) {
+                            for (TypeInfo foo10 : TypeInfo.getMethodsRecursive(foo9.getReturnType(), "iterator")) {
+                                for (TypeInfo foo11 : TypeInfo.getMethodsRecursive(foo10.getReturnType(), "next")) {
+                                    TypeInfo foo12 = TypeInfo.getFieldRecursive(foo11.getReturnType(), "first");
+                                    foo12.printDetailed();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+} catch (NoSuchMethodException | NoSuchFieldException e) {
+    throw new RuntimeException(e);
+}
+```
+
+and it outputs
+```
+TypeInfo {
+  field: public java.lang.Integer smallville7123.reflectui.utils.Pair#first
+  field type: 
+    TypeInfo {
+      type: java.lang.Integer
     }
 }
 ```
