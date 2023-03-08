@@ -66,8 +66,8 @@ TypeInfo {
 give it
 
 ```java
-class C__ <T extends Number> {
-    public List<HashMap<T[][], Pair<Integer[], C__<Integer>>>[]> foo;
+class C__ <T extends java.io.Serializable> {
+    public List<HashMap<T[][], Pair<T[], C__<StringBuilder>>>[]> foo;
 }
 ```
 ```java
@@ -103,10 +103,10 @@ try {
 and it outputs
 ```
 TypeInfo {
-  field: public java.lang.Integer smallville7123.reflectui.utils.Pair#first
+  field: public java.lang.StringBuilder smallville7123.reflectui.utils.Pair#first
   field type: 
     TypeInfo {
-      type: java.lang.Integer
+      type: java.lang.StringBuilder
     }
 }
 ```
