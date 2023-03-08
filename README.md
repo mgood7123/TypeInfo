@@ -6,14 +6,14 @@ Java Reflection based type analysis (including generics resolution)
 give it
 
 ```java
-class C__ <T extends Number> {
+class C__1 <T extends Number> {
     public List<HashMap<T[][], Pair<Integer[], C__<Integer>>>[]> foo;
 }
 ```
 
 ```java
 try {
-    TypeInfo.getFieldRecursive(C__.class, "foo").printDetailed();
+    TypeInfo.getFieldRecursive(C__1.class, "foo").printDetailed();
 } catch (NoSuchFieldException e) {
     throw new RuntimeException(e);
 }
@@ -22,35 +22,35 @@ try {
 and it outputs
 ```
 TypeInfo {
-  field: public java.util.List<java.util.HashMap<java.lang.Number[][], smallville7123.reflectui.utils.Pair<java.lang.Integer[], smallville7123.Main.C__<java.lang.Integer>>>[]> smallville7123.Main.C__#foo
+  field: public smallville7123.Main.C__1#foo ( with return type: public abstract interface java.util.List<public java.util.HashMap<public abstract java.lang.Number[][], public smallville7123.reflectui.utils.Pair<public final java.lang.Integer[], internal smallville7123.Main.C__<public final java.lang.Integer>>>[]> )
   field type: 
     TypeInfo {
-      type: java.util.List<java.util.HashMap<java.lang.Number[][], smallville7123.reflectui.utils.Pair<java.lang.Integer[], smallville7123.Main.C__<java.lang.Integer>>>[]>
+      type: public abstract interface java.util.List<public java.util.HashMap<public abstract java.lang.Number[][], public smallville7123.reflectui.utils.Pair<public final java.lang.Integer[], internal smallville7123.Main.C__<public final java.lang.Integer>>>[]>
       isGeneric: true
       genericParameters: 1
         TypeInfo {
-          type: java.util.HashMap<java.lang.Number[][], smallville7123.reflectui.utils.Pair<java.lang.Integer[], smallville7123.Main.C__<java.lang.Integer>>>[]
+          type: public java.util.HashMap<public abstract java.lang.Number[][], public smallville7123.reflectui.utils.Pair<public final java.lang.Integer[], internal smallville7123.Main.C__<public final java.lang.Integer>>>[]
           isGeneric: true
           typeRank: 1
           genericParameters: 2
             TypeInfo {
-              type: java.lang.Number[][]
+              type: public abstract java.lang.Number[][]
               typeRank: 2
             }
             TypeInfo {
-              type: smallville7123.reflectui.utils.Pair<java.lang.Integer[], smallville7123.Main.C__<java.lang.Integer>>
+              type: public smallville7123.reflectui.utils.Pair<public final java.lang.Integer[], internal smallville7123.Main.C__<public final java.lang.Integer>>
               isGeneric: true
               genericParameters: 2
                 TypeInfo {
-                  type: java.lang.Integer[]
+                  type: public final java.lang.Integer[]
                   typeRank: 1
                 }
                 TypeInfo {
-                  type: smallville7123.Main.C__<java.lang.Integer>
+                  type: internal smallville7123.Main.C__<public final java.lang.Integer>
                   isGeneric: true
                   genericParameters: 1
                     TypeInfo {
-                      type: java.lang.Integer
+                      type: public final java.lang.Integer
                     }
                 }
             }
@@ -102,35 +102,35 @@ try {
 and it outputs
 ```
 TypeInfo {
-  field: private java.util.List<java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]> smallville7123.Main.C__#foo
+  field: private smallville7123.Main.C__#foo ( with return type: public abstract interface java.util.List<public java.util.HashMap<public final java.lang.StringBuilder[][], public smallville7123.reflectui.utils.Pair<public final java.lang.StringBuilder[], internal smallville7123.Main.C__<public final java.lang.StringBuilder>>>[]> )
   field type: 
     TypeInfo {
-      type: java.util.List<java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]>
+      type: public abstract interface java.util.List<public java.util.HashMap<public final java.lang.StringBuilder[][], public smallville7123.reflectui.utils.Pair<public final java.lang.StringBuilder[], internal smallville7123.Main.C__<public final java.lang.StringBuilder>>>[]>
       isGeneric: true
       genericParameters: 1
         TypeInfo {
-          type: java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]
+          type: public java.util.HashMap<public final java.lang.StringBuilder[][], public smallville7123.reflectui.utils.Pair<public final java.lang.StringBuilder[], internal smallville7123.Main.C__<public final java.lang.StringBuilder>>>[]
           isGeneric: true
           typeRank: 1
           genericParameters: 2
             TypeInfo {
-              type: java.lang.StringBuilder[][]
+              type: public final java.lang.StringBuilder[][]
               typeRank: 2
             }
             TypeInfo {
-              type: smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>
+              type: public smallville7123.reflectui.utils.Pair<public final java.lang.StringBuilder[], internal smallville7123.Main.C__<public final java.lang.StringBuilder>>
               isGeneric: true
               genericParameters: 2
                 TypeInfo {
-                  type: java.lang.StringBuilder[]
+                  type: public final java.lang.StringBuilder[]
                   typeRank: 1
                 }
                 TypeInfo {
-                  type: smallville7123.Main.C__<java.lang.StringBuilder>
+                  type: internal smallville7123.Main.C__<public final java.lang.StringBuilder>
                   isGeneric: true
                   genericParameters: 1
                     TypeInfo {
-                      type: java.lang.StringBuilder
+                      type: public final java.lang.StringBuilder
                     }
                 }
             }
@@ -139,10 +139,10 @@ TypeInfo {
 }
 
 TypeInfo {
-  field: public java.lang.StringBuilder smallville7123.reflectui.utils.Pair#first
+  field: public smallville7123.reflectui.utils.Pair#first ( with return type: public final java.lang.StringBuilder )
   field type: 
     TypeInfo {
-      type: java.lang.StringBuilder
+      type: public final java.lang.StringBuilder
     }
 }
 ```
