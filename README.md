@@ -79,6 +79,7 @@ try {
                     TypeInfo foo6 = TypeInfo.getFieldRecursive(foo5.getReturnType(), "second");
                     // get the field of new C__<Integer>().foo.get(0)[0].values().iterator().next().first
                     TypeInfo foo7 = TypeInfo.getFieldRecursive(foo6.getReturnType(), "foo");
+                    foo7.printDetailed();
                     for (TypeInfo foo8 : TypeInfo.getMethodsRecursive(foo7.getReturnType(), "get")) {
                         for (TypeInfo foo9 : TypeInfo.getMethodsRecursive(foo8.getReturnType(), "values")) {
                             for (TypeInfo foo10 : TypeInfo.getMethodsRecursive(foo9.getReturnType(), "iterator")) {
@@ -100,6 +101,43 @@ try {
 
 and it outputs
 ```
+TypeInfo {
+  field: public java.util.List<java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]> smallville7123.Main.C__#foo
+  field type: 
+    TypeInfo {
+      type: java.util.List<java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]>
+      isGeneric: true
+      genericParameters: 1
+        TypeInfo {
+          type: java.util.HashMap<java.lang.StringBuilder[][], smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>>[]
+          isGeneric: true
+          typeRank: 1
+          genericParameters: 2
+            TypeInfo {
+              type: java.lang.StringBuilder[][]
+              typeRank: 2
+            }
+            TypeInfo {
+              type: smallville7123.reflectui.utils.Pair<java.lang.StringBuilder[], smallville7123.Main.C__<java.lang.StringBuilder>>
+              isGeneric: true
+              genericParameters: 2
+                TypeInfo {
+                  type: java.lang.StringBuilder[]
+                  typeRank: 1
+                }
+                TypeInfo {
+                  type: smallville7123.Main.C__<java.lang.StringBuilder>
+                  isGeneric: true
+                  genericParameters: 1
+                    TypeInfo {
+                      type: java.lang.StringBuilder
+                    }
+                }
+            }
+        }
+    }
+}
+
 TypeInfo {
   field: public java.lang.StringBuilder smallville7123.reflectui.utils.Pair#first
   field type: 
