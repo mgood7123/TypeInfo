@@ -584,21 +584,24 @@ public class TypeInfo {
             if (isField()) {
                 stringBuilder.append(modifierToString(field.getModifiers()));
                 stringBuilder.append(" ");
-                stringBuilder.append(stringBuilderRet);
-                stringBuilderRet = null;
                 stringBuilder.append(field.getDeclaringClass().getName());
                 stringBuilder.append("#");
                 stringBuilder.append(field.getName());
-            } else {
-                stringBuilder.append(modifierToString(method.getModifiers()));
-                stringBuilder.append(" ");
+                stringBuilder.append(" ( with return type: ");
                 stringBuilder.append(stringBuilderRet);
                 stringBuilderRet = null;
+                stringBuilder.append(")");
+            } else {
+                stringBuilder.append(modifierToString(method.getModifiers()));
                 stringBuilder.append(method.getDeclaringClass().getName());
                 stringBuilder.append("#");
                 stringBuilder.append(method.getName());
-                stringBuilder.append("(");
+                stringBuilder.append(" ( with return type: ");
+                stringBuilder.append(stringBuilderRet);
+                stringBuilderRet = null;
+                stringBuilder.append(")");
                 if (methodParameters != null) {
+                    stringBuilder.append(", ( with arguments: ");
                     StringJoiner joiner = new StringJoiner(", ");
                     for (TypeInfo methodParameter : methodParameters) {
                         String toGenericParametersString = methodParameter.toGenericParametersString();
@@ -607,8 +610,10 @@ public class TypeInfo {
                     stringBuilder.append(
                             joiner
                     );
+                    stringBuilder.append(" )");
+                } else {
+                    stringBuilder.append(", ( with no arguments )");
                 }
-                stringBuilder.append(")");
             }
             return stringBuilder.toString();
         }
