@@ -20,7 +20,7 @@ try {
 TypeInfo.GLOBAL_OUTPUT = false;
 ```
 
-ant it outputs
+and it outputs
 ```
 TypeInfo {
   field: public java.util.List<java.util.HashMap<java.lang.Number[][], smallville7123.reflectui.utils.Pair<java.lang.Integer[], smallville7123.Main.C__<java.lang.Integer>>>[]> smallville7123.Main.C__#foo
