@@ -65,7 +65,7 @@ give it
 
 ```java
 class C__ <T extends java.io.Serializable> {
-    public List<HashMap<T[][], Pair<T[], C__<StringBuilder>>>[]> foo;
+    private List<HashMap<T[][], Pair<T[], C__<StringBuilder>>>[]> foo;
 }
 ```
 ```java
