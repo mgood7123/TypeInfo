@@ -1,3 +1,7 @@
+# DEPRECIATED
+
+please use https://github.com/mgood7123/TypeContext instead
+
 # TypeInfo
 Java Reflection based type analysis (including generics resolution)
 
